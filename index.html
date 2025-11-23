@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="box">
+        <h1>Calculate Inhertance</h1>
+        <input type="text" placeholder="How much is the Money" id="father" name="father_Money">
+        <div class="select">
+            <label for="sel">Is your Mother Alive :</label>
+            <select name="checkMom" id="sel">
+                <option>true</option>
+                <option>false</option>
+            </select>
+        </div>
+        <input type="text" name="numsofsons" placeholder="How many sons">
+        <input type="text" name="numsofdaughters" placeholder="How many daughters">
+        <button>Calculate</button>
+    </div>
+
+    <div class="show">
+        <div class="partmom">
+            <p id="p1">The Part of mother is : <span id="s1">0</span>$</p>
+        </div>
+        <div class="partmom">
+            <p id="p2">The Part of each daughter is : <span id="s2">0</span>$</p>
+        </div>
+        <div class="partmom">
+            <p id="p3">The Part of each son is : <span id="s3">0</span>$</p>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>
