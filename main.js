@@ -3,9 +3,9 @@ const inputSons = document.querySelector("[ name = 'numsofsons']");
 const inputDaughters = document.querySelector("[ name = 'numsofdaughters']");
 const MoneyOfFather = document.getElementById("father");
 const btn = document.querySelector("button");
-const sMom = document.querySelector("#p1 span");
-const sdaughter = document.querySelector("#p2 span");
-const sSon = document.querySelector("#p3 span");
+const dMom = document.querySelector("#d1");
+const ddaughter = document.querySelector("#d2");
+const dSon = document.querySelector("#d3");
 
 btn.addEventListener("click" , function(){
     let sons = Number(inputSons.value);
@@ -16,15 +16,30 @@ btn.addEventListener("click" , function(){
         partMom = fatherMoney / 8;
         fatherMoney -=partMom;        
         partDaughter = fatherMoney / ((2 * sons) + daughters);
-        sMom.innerHTML = partMom.toFixed(2);
-        sdaughter.innerHTML =  partDaughter.toFixed(2);
-        sSon.innerHTML = (partDaughter * 2).toFixed(2);
+        let inter1 = setInterval(function(){
+            dMom.innerHTML = parseInt(dMom.innerHTML) + 10;
+            if(parseInt(dMom.innerHTML) === partMom){
+                clearInterval(inter1);
+            }
+        } , 1);
+        let inter2 = setInterval(() => {
+            ddaughter.innerHTML = parseInt(ddaughter.innerHTML) + 10;
+            if(parseInt(ddaughter.innerHTML) === partDaughter){
+                clearInterval(inter2);
+            }
+        }, 1);
+        let inter3 = setInterval(() => {
+            dSon.innerHTML = parseInt(dSon.innerHTML) + 20;
+            if(parseInt(dSon.innerHTML) === (partDaughter * 2)){
+                clearInterval(inter3);
+            }
+        }, 1);
     }
     else{
         partDaughter = fatherMoney / ((2 * sons) + daughters);
-        sMom.innerHTML = fatherMoney * 0;
-        sdaughter.innerHTML =  partDaughter.toFixed(2);
-        sSon.innerHTML = (partDaughter * 2).toFixed(2);
+        dMom.innerHTML = fatherMoney * 0;
+        ddaughter.innerHTML =  partDaughter.toFixed(2);
+        dSon.innerHTML = (partDaughter * 2).toFixed(2);
     }
     setSession();
 });
