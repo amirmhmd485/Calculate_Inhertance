@@ -12,34 +12,38 @@ btn.addEventListener("click" , function(){
     let daughters = Number(inputDaughters.value);
     let fatherMoney = Number(MoneyOfFather.value);
     let partMom, partSon , partDaughter;
-    if(select.value === "true"){
-        partMom = fatherMoney / 8;
-        fatherMoney -=partMom;        
-        partDaughter = fatherMoney / ((2 * sons) + daughters);
+    function parent (){
         let inter1 = setInterval(function(){
-            dMom.innerHTML = parseInt(dMom.innerHTML) + 10;
+            dMom.innerHTML = parseInt(dMom.innerHTML) + 100;
             if(parseInt(dMom.innerHTML) === partMom){
                 clearInterval(inter1);
             }
         } , 1);
+    }
+    function child(){
         let inter2 = setInterval(() => {
-            ddaughter.innerHTML = parseInt(ddaughter.innerHTML) + 10;
+            ddaughter.innerHTML = parseInt(ddaughter.innerHTML) + 100;
             if(parseInt(ddaughter.innerHTML) === partDaughter){
                 clearInterval(inter2);
             }
         }, 1);
         let inter3 = setInterval(() => {
-            dSon.innerHTML = parseInt(dSon.innerHTML) + 20;
+            dSon.innerHTML = parseInt(dSon.innerHTML) + 200;
             if(parseInt(dSon.innerHTML) === (partDaughter * 2)){
                 clearInterval(inter3);
             }
         }, 1);
     }
+    if(select.value === "true"){
+        partMom = fatherMoney / 8;
+        fatherMoney -=partMom;        
+        partDaughter = fatherMoney / ((2 * sons) + daughters);
+        parent();
+        child();
+    }
     else{
         partDaughter = fatherMoney / ((2 * sons) + daughters);
-        dMom.innerHTML = fatherMoney * 0;
-        ddaughter.innerHTML =  partDaughter.toFixed(2);
-        dSon.innerHTML = (partDaughter * 2).toFixed(2);
+        child();
     }
     setSession();
 });
