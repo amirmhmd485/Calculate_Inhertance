@@ -12,25 +12,25 @@ btn.addEventListener("click" , function(){
     let daughters = Number(inputDaughters.value);
     let fatherMoney = Number(MoneyOfFather.value);
     let partMom, partSon , partDaughter;
-    function parent (){
-        let inter1 = setInterval(function(){
-            dMom.innerHTML = parseInt(dMom.innerHTML) + 100;
+    function parent(){
+        let set1 = setInterval(() => {
+            dMom.innerHTML = parseInt(dMom.innerHTML) + 1;
             if(parseInt(dMom.innerHTML) === partMom){
-                clearInterval(inter1);
+                clearInterval(set1);
             }
         } , 1);
     }
     function child(){
-        let inter2 = setInterval(() => {
-            ddaughter.innerHTML = parseInt(ddaughter.innerHTML) + 100;
+        let inter4 = setInterval(() => {
+            ddaughter.innerHTML = parseInt(ddaughter.innerHTML) + 1;
             if(parseInt(ddaughter.innerHTML) === partDaughter){
-                clearInterval(inter2);
+                clearInterval(inter4);
             }
         }, 1);
-        let inter3 = setInterval(() => {
-            dSon.innerHTML = parseInt(dSon.innerHTML) + 200;
+        let inter5 = setInterval(() => {
+            dSon.innerHTML = parseInt(dSon.innerHTML) + 2;
             if(parseInt(dSon.innerHTML) === (partDaughter * 2)){
-                clearInterval(inter3);
+                clearInterval(inter5);
             }
         }, 1);
     }
