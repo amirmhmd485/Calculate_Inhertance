@@ -4,21 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/9a4c46d152.js" crossorigin="anonymous"></script>
     <title>Document</title>
 </head>
 <body>
     <div class="box">
-        <h1>Calculate Inhertance</h1>
-        <input type="text" placeholder="How much is the Money" id="father" name="father_Money">
+        <div class="header">
+            <i class="fa-solid fa-calculator"></i>
+            <h1>Calc Inhertance</h1>
+        </div>
+        <div class="money">
+            <i class="fa-solid fa-dollar-sign"></i>
+            <input type="text" placeholder="How much is the Money" id="father" name="father_Money">
+        </div>
         <div class="select">
             <label for="sel">Is your Mother Alive :</label>
+            <i class="fa-solid fa-heart"></i>
             <select name="checkMom" id="sel">
                 <option>true</option>
                 <option>false</option>
             </select>
         </div>
-        <input type="text" name="numsofsons" placeholder="How many sons">
-        <input type="text" name="numsofdaughters" placeholder="How many daughters">
+        <div class="user">
+            <i class="fa-solid fa-user-tie"></i>
+            <input type="text" name="numsofsons" placeholder="How many sons">
+        </div>
+        <div class="female">
+            <i class="fa-solid fa-user-tie"></i>
+            <input type="text" name="numsofdaughters" placeholder="How many daughters">
+        </div>
         <button>Calculate</button>
     </div>
 
