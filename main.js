@@ -12,38 +12,22 @@ btn.addEventListener("click" , function(){
     let daughters = Number(inputDaughters.value);
     let fatherMoney = Number(MoneyOfFather.value);
     let partMom, partSon , partDaughter;
-    function parent(){
-        let set1 = setInterval(() => {
-            dMom.innerHTML = parseInt(dMom.innerHTML) + 1;
-            if(parseInt(dMom.innerHTML) === partMom){
-                clearInterval(set1);
-            }
-        } , 1);
-    }
-    function child(){
-        let inter4 = setInterval(() => {
-            ddaughter.innerHTML = parseInt(ddaughter.innerHTML) + 1;
-            if(parseInt(ddaughter.innerHTML) === partDaughter){
-                clearInterval(inter4);
-            }
-        }, 1);
-        let inter5 = setInterval(() => {
-            dSon.innerHTML = parseInt(dSon.innerHTML) + 2;
-            if(parseInt(dSon.innerHTML) === (partDaughter * 2)){
-                clearInterval(inter5);
-            }
-        }, 1);
-    }
     if(select.value === "true"){
         partMom = fatherMoney / 8;
-        fatherMoney -=partMom;        
-        partDaughter = fatherMoney / ((2 * sons) + daughters);
-        parent();
-        child();
+        fatherMoney -= partMom;
+        partDaughter = fatherMoney / (2 * sons + daughters);
+        partSon = partDaughter * 2;
+        dMom.innerHTML = partMom;
+        dSon.innerHTML = partSon;
+        ddaughter.innerHTML = partDaughter;
     }
     else{
-        partDaughter = fatherMoney / ((2 * sons) + daughters);
-        child();
+        partMom = fatherMoney * 0;
+        partDaughter = fatherMoney / (2 * sons + daughters);
+        partSon = partDaughter * 2;
+        dMom.innerHTML = partMom;
+        dSon.innerHTML = partSon;
+        ddaughter.innerHTML = partDaughter;
     }
     setSession();
 });
