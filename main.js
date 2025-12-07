@@ -16,18 +16,18 @@ btn.addEventListener("click" , function(){
         partMom = fatherMoney / 8;
         fatherMoney -= partMom;
         partDaughter = fatherMoney / (2 * sons + daughters);
-        partSon = partDaughter * 2;
-        dMom.innerHTML = partMom;
-        dSon.innerHTML = partSon;
-        ddaughter.innerHTML = partDaughter;
+        partSon = (partDaughter * 2);
+        dMom.innerHTML = partMom.toFixed(2);
+        dSon.innerHTML = partSon.toFixed(2);
+        ddaughter.innerHTML = partDaughter.toFixed(2);
     }
     else{
         partMom = fatherMoney * 0;
         partDaughter = fatherMoney / (2 * sons + daughters);
         partSon = partDaughter * 2;
         dMom.innerHTML = partMom;
-        dSon.innerHTML = partSon;
-        ddaughter.innerHTML = partDaughter;
+        dSon.innerHTML = partSon.toFixed(2);
+        ddaughter.innerHTML = partDaughter.toFixed(2);
     }
     setSession();
 });
@@ -56,8 +56,10 @@ window.addEventListener("load" , function(){
 });
 allinputs.forEach(function(e){
     e.addEventListener("keydown" , function(el){
-        if(el.key === "Backspace" || el.key === "ArrowLeft" || el.key === "ArrowRight" || el.key === "Tab" || el.key === "Shift" || !isNaN(el.key)){
-            return el;
+        let elRgPattern = /\d+/ig;
+        let isvalidate = elRgPattern.test(el.key);
+        if(isvalidate === true ||el.key === "Backspace" || el.key === "ArrowLeft" || el.key === "ArrowRight" || el.key === "Tab" || el.key === "Shift" ){
+            return el.key;
         }
         else{
             el.preventDefault();
